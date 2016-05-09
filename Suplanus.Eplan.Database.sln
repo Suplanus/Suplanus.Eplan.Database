@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suplanus.Eplan.Database.Parts", "Suplanus.Eplan.Database.Parts\Suplanus.Eplan.Database.Parts.csproj", "{C0DEA9FD-717A-4F1B-8D4F-8119DB36D706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suplanus.Eplan.Database.ProjectManagement", "Suplanus.Eplan.Database.ProjectManagement\Suplanus.Eplan.Database.ProjectManagement.csproj", "{8532E64A-D472-4254-9D9E-0AF3AB63DF0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suplanus.Eplan.Database.Translations", "Suplanus.Eplan.Database.Translations\Suplanus.Eplan.Database.Translations.csproj", "{BC1B63AF-231C-47FF-A13C-A97660B0DF92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0DEA9FD-717A-4F1B-8D4F-8119DB36D706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0DEA9FD-717A-4F1B-8D4F-8119DB36D706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0DEA9FD-717A-4F1B-8D4F-8119DB36D706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0DEA9FD-717A-4F1B-8D4F-8119DB36D706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8532E64A-D472-4254-9D9E-0AF3AB63DF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8532E64A-D472-4254-9D9E-0AF3AB63DF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8532E64A-D472-4254-9D9E-0AF3AB63DF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8532E64A-D472-4254-9D9E-0AF3AB63DF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC1B63AF-231C-47FF-A13C-A97660B0DF92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1B63AF-231C-47FF-A13C-A97660B0DF92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1B63AF-231C-47FF-A13C-A97660B0DF92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1B63AF-231C-47FF-A13C-A97660B0DF92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

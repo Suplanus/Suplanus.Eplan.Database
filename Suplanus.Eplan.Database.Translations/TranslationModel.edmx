@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TranslationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EPLAN_2_5_TRANSLATION.dbo.NonTranslatedWords' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NonTranslatedWords">
+          <Key>
+            <PropertyRef Name="_uniqueid" />
+          </Key>
+          <Property Name="Words" Type="nvarchar(max)" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EPLAN_2_5_TRANSLATION.dbo.Term' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Term">
+          <Key>
+            <PropertyRef Name="_uniqueid" />
+          </Key>
+          <Property Name="Language" Type="nvarchar(max)" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LockedTerm" Type="nvarchar(max)" />
+          <Property Name="Term" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EPLAN_2_5_TRANSLATION.dbo.Translations' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Translations">
+          <Key>
+            <PropertyRef Name="_uniqueid" />
+          </Key>
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="de_DE_Match" Type="nvarchar" MaxLength="1000" />
+          <Property Name="de_DE_Entry" Type="nvarchar(max)" />
+          <Property Name="en_US_Match" Type="nvarchar" MaxLength="1000" />
+          <Property Name="en_US_Entry" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EPLAN_2_5_TRANSLATION.dbo.Version' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="_uniqueid" />
+          </Key>
+          <Property Name="VersionNr" Type="nvarchar" MaxLength="50" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TranslationModelStoreContainer">
+          <EntitySet Name="NonTranslatedWords" EntityType="Self.NonTranslatedWords" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NonTranslatedWords].[Words] AS [Words], 
+    [NonTranslatedWords].[_uniqueid] AS [_uniqueid]
+    FROM [dbo].[NonTranslatedWords] AS [NonTranslatedWords]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Term" EntityType="Self.Term" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Term].[Language] AS [Language], 
+    [Term].[_uniqueid] AS [_uniqueid], 
+    [Term].[LockedTerm] AS [LockedTerm], 
+    [Term].[Term] AS [Term]
+    FROM [dbo].[Term] AS [Term]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Translations" EntityType="Self.Translations" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Translations].[Comment] AS [Comment], 
+    [Translations].[_uniqueid] AS [_uniqueid], 
+    [Translations].[de_DE_Match] AS [de_DE_Match], 
+    [Translations].[de_DE_Entry] AS [de_DE_Entry], 
+    [Translations].[en_US_Match] AS [en_US_Match], 
+    [Translations].[en_US_Entry] AS [en_US_Entry]
+    FROM [dbo].[Translations] AS [Translations]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Version" EntityType="Self.Version" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Version].[VersionNr] AS [VersionNr], 
+    [Version].[_uniqueid] AS [_uniqueid]
+    FROM [dbo].[Version] AS [Version]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TranslationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="NonTranslatedWord">
+          <Key>
+            <PropertyRef Name="C_uniqueid" />
+          </Key>
+          <Property Name="Words" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Term">
+          <Key>
+            <PropertyRef Name="C_uniqueid" />
+          </Key>
+          <Property Name="Language" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LockedTerm" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Term1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Translation">
+          <Key>
+            <PropertyRef Name="C_uniqueid" />
+          </Key>
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="de_DE_Match" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="de_DE_Entry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="en_US_Match" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="en_US_Entry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="C_uniqueid" />
+          </Key>
+          <Property Name="VersionNr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="TranslationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NonTranslatedWords" EntityType="Self.NonTranslatedWord" />
+          <EntitySet Name="Terms" EntityType="Self.Term" />
+          <EntitySet Name="Translations" EntityType="Self.Translation" />
+          <EntitySet Name="Versions" EntityType="Self.Version" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TranslationModelStoreContainer" CdmEntityContainer="TranslationEntities">
+          <EntitySetMapping Name="NonTranslatedWords">
+            <EntityTypeMapping TypeName="TranslationModel.NonTranslatedWord">
+              <MappingFragment StoreEntitySet="NonTranslatedWords">
+                <ScalarProperty Name="Words" ColumnName="Words" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terms">
+            <EntityTypeMapping TypeName="TranslationModel.Term">
+              <MappingFragment StoreEntitySet="Term">
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+                <ScalarProperty Name="LockedTerm" ColumnName="LockedTerm" />
+                <ScalarProperty Name="Term1" ColumnName="Term" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Translations">
+            <EntityTypeMapping TypeName="TranslationModel.Translation">
+              <MappingFragment StoreEntitySet="Translations">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+                <ScalarProperty Name="de_DE_Match" ColumnName="de_DE_Match" />
+                <ScalarProperty Name="de_DE_Entry" ColumnName="de_DE_Entry" />
+                <ScalarProperty Name="en_US_Match" ColumnName="en_US_Match" />
+                <ScalarProperty Name="en_US_Entry" ColumnName="en_US_Entry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Versions">
+            <EntityTypeMapping TypeName="TranslationModel.Version">
+              <MappingFragment StoreEntitySet="Version">
+                <ScalarProperty Name="VersionNr" ColumnName="VersionNr" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

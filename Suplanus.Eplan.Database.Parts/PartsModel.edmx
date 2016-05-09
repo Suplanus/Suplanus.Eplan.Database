@@ -1,0 +1,1978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PartsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAccessoryList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="smallint" />
+          <Property Name="create" Type="nvarchar" MaxLength="40" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastchange" Type="nvarchar" MaxLength="40" />
+          <Property Name="name" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="tblAccessoryListPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+          <Property Name="placement" Type="nvarchar" MaxLength="50" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAccessoryPlacement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="smallint" />
+          <Property Name="create" Type="nvarchar" MaxLength="40" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastchange" Type="nvarchar" MaxLength="40" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblAccessoryPlacementPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="40" />
+          <Property Name="referencepoint" Type="smallint" />
+          <Property Name="rotation" Type="float" />
+          <Property Name="xspacing" Type="float" />
+          <Property Name="yspacing" Type="float" />
+          <Property Name="zspacing" Type="float" />
+          <Property Name="movable" Type="bit" Nullable="false" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAccessoryPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+          <Property Name="necessary" Type="bit" Nullable="false" />
+          <Property Name="parttype" Type="smallint" />
+          <Property Name="placement" Type="nvarchar" MaxLength="50" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EPLAN_2.5_PARTS.dbo.tblAddress' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblAddress">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="smallint" />
+          <Property Name="email" Type="nvarchar" MaxLength="70" />
+          <Property Name="fax" Type="nvarchar" MaxLength="30" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastchange" Type="nvarchar" MaxLength="40" />
+          <Property Name="longname" Type="nvarchar" MaxLength="50" />
+          <Property Name="name1" Type="nvarchar" MaxLength="40" />
+          <Property Name="name2" Type="nvarchar" MaxLength="40" />
+          <Property Name="name3" Type="nvarchar" MaxLength="40" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="number" Type="nvarchar" MaxLength="30" />
+          <Property Name="phone" Type="nvarchar" MaxLength="30" />
+          <Property Name="pobox" Type="nvarchar" MaxLength="30" />
+          <Property Name="shortname" Type="nvarchar" MaxLength="30" />
+          <Property Name="state" Type="nvarchar" MaxLength="30" />
+          <Property Name="street" Type="nvarchar" MaxLength="30" />
+          <Property Name="title" Type="nvarchar" MaxLength="30" />
+          <Property Name="town" Type="nvarchar" MaxLength="30" />
+          <Property Name="zippobox" Type="nvarchar" MaxLength="30" />
+          <Property Name="ziptown" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tblAssembly">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="parentvariant" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="count" Type="smallint" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="parentvariant" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="additionaltext" Type="nvarchar" MaxLength="50" />
+          <Property Name="posnr" Type="nvarchar" MaxLength="50" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EPLAN_2.5_PARTS.dbo.tblAttribute' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblAttribute">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+            <PropertyRef Name="_uniqueid" />
+          </Key>
+          <Property Name="class" Type="smallint" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="val" Type="nvarchar" MaxLength="80" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBlockingSurfacePosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="frontside" Type="bit" Nullable="false" />
+          <Property Name="height" Type="float" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="type" Type="int" />
+          <Property Name="width" Type="float" />
+          <Property Name="xpos" Type="float" />
+          <Property Name="ypos" Type="float" />
+        </EntityType>
+        <EntityType Name="tblConstruction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="smallint" />
+          <Property Name="create" Type="nvarchar" MaxLength="40" />
+          <Property Name="designation" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastchange" Type="nvarchar" MaxLength="40" />
+          <Property Name="name" Type="nvarchar" MaxLength="40" />
+          <Property Name="variant" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tblDoorPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+          <Property Name="xpos" Type="float" />
+          <Property Name="ypos" Type="float" />
+          <Property Name="zpos" Type="float" />
+        </EntityType>
+        <EntityType Name="tblDrillingPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="angle" Type="float" />
+          <Property Name="dimension1" Type="float" />
+          <Property Name="dimension2" Type="float" />
+          <Property Name="dimension3" Type="float" />
+          <Property Name="drillnthhole" Type="int" />
+          <Property Name="fabricatealways" Type="bit" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="outlinename" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="spacingend" Type="float" />
+          <Property Name="spacingrepeat" Type="float" />
+          <Property Name="subtype" Type="int" />
+          <Property Name="type" Type="int" />
+          <Property Name="xpos" Type="float" />
+          <Property Name="ypos" Type="float" />
+        </EntityType>
+        <EntityType Name="tblFreeProperty">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="unit" Type="nvarchar" MaxLength="50" />
+          <Property Name="val" Type="nvarchar(max)" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFunctionTemplate">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+            <PropertyRef Name="variant" />
+          </Key>
+          <Property Name="additionaldescription" Type="nvarchar(max)" />
+          <Property Name="characteristics" Type="nvarchar" MaxLength="60" />
+          <Property Name="connectioncrosssection" Type="nvarchar" MaxLength="255" />
+          <Property Name="connectionDesignation" Type="nvarchar" MaxLength="255" />
+          <Property Name="connectiondescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="description" Type="nvarchar" MaxLength="30" />
+          <Property Name="functiondefcategory" Type="smallint" />
+          <Property Name="functiondefgroup" Type="smallint" />
+          <Property Name="functiondefid" Type="smallint" />
+          <Property Name="hasled" Type="bit" Nullable="false" />
+          <Property Name="hasplugadapter" Type="bit" Nullable="false" />
+          <Property Name="hpdlink" Type="smallint" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idx1" Type="nvarchar" MaxLength="30" />
+          <Property Name="idx2" Type="nvarchar" MaxLength="30" />
+          <Property Name="intrinsicsafety" Type="bit" Nullable="false" />
+          <Property Name="nesteddevicetag" Type="nvarchar" MaxLength="30" />
+          <Property Name="pipeclass" Type="nvarchar" MaxLength="20" />
+          <Property Name="plcbussystem" Type="smallint" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="safetyrelevant" Type="bit" Nullable="false" />
+          <Property Name="symbol" Type="nvarchar" MaxLength="50" />
+          <Property Name="symbolmacro" Type="nvarchar" MaxLength="255" />
+          <Property Name="terminalfunction" Type="smallint" />
+          <Property Name="terminallabeltype" Type="nvarchar" MaxLength="20" />
+          <Property Name="terminalNr" Type="nvarchar" MaxLength="30" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'EPLAN_2.5_PARTS.dbo.tblGrid' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblGrid">
+          <Property Name="id" Type="int" />
+          <Property Name="propertyid" Type="int" />
+          <Property Name="propertyindex" Type="int" />
+          <Property Name="str_val" Type="nvarchar" MaxLength="255" />
+          <Property Name="text_val" Type="nvarchar(max)" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'EPLAN_2.5_PARTS.dbo.tblLookup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblLookup">
+          <Property Name="keyName" Type="nvarchar" MaxLength="30" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="nr" Type="smallint" />
+        </EntityType>-->
+        <EntityType Name="tblMechanic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="barcount" Type="smallint" />
+          <Property Name="bardistance" Type="float" />
+          <Property Name="bargeometry" Type="nvarchar" MaxLength="50" />
+          <Property Name="barmountingplatedistance" Type="float" />
+          <Property Name="bottompaneldepth" Type="float" />
+          <Property Name="bottompaneldistance" Type="float" />
+          <Property Name="bottompanelprojectionback" Type="float" />
+          <Property Name="bottompanelprojectionfront" Type="float" />
+          <Property Name="bottompanelprojectionleft" Type="float" />
+          <Property Name="bottompanelprojectionright" Type="float" />
+          <Property Name="busbarholderpartnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="busbarholdervariant" Type="nvarchar" MaxLength="3" />
+          <Property Name="busbarrailpartnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="busbarrailvariant" Type="nvarchar" MaxLength="3" />
+          <Property Name="bundlemindiameter" Type="float" />
+          <Property Name="bundlemaxdiameter" Type="float" />
+          <Property Name="conductibility" Type="nvarchar" MaxLength="20" />
+          <Property Name="deliverylength" Type="float" />
+          <Property Name="dooroffsetright" Type="float" />
+          <Property Name="dooroffsettop" Type="float" />
+          <Property Name="doorthickness" Type="float" />
+          <Property Name="doortrabbet" Type="float" />
+          <Property Name="doortype" Type="nvarchar" MaxLength="50" />
+          <Property Name="hingeposition" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="insertpointoffsetx" Type="float" />
+          <Property Name="profiledepth" Type="float" />
+          <Property Name="profiledistance" Type="float" />
+          <Property Name="profileheight" Type="float" />
+          <Property Name="railcrosssection" Type="float" />
+          <Property Name="railmaterial" Type="smallint" />
+          <Property Name="rearpaneldistance" Type="float" />
+          <Property Name="rearpaneldpepth" Type="float" />
+          <Property Name="rearpanelprojectionbottom" Type="float" />
+          <Property Name="rearpanelprojectionleft" Type="float" />
+          <Property Name="rearpanelprojectionright" Type="float" />
+          <Property Name="rearpanelprojectiontop" Type="float" />
+          <Property Name="sidepaneldepth" Type="float" />
+          <Property Name="sidepaneldistance" Type="float" />
+          <Property Name="sidepanelprojectionback" Type="float" />
+          <Property Name="sidepanelprojectionbottom" Type="float" />
+          <Property Name="sidepanelprojectionfront" Type="float" />
+          <Property Name="sidepanelprojectiontop" Type="float" />
+          <Property Name="temperaturecoefficient" Type="nvarchar" MaxLength="20" />
+          <Property Name="toppaneldistance" Type="float" />
+          <Property Name="toppaneldpepth" Type="float" />
+          <Property Name="toppanelprojectionback" Type="float" />
+          <Property Name="toppanelprojectionfront" Type="float" />
+          <Property Name="toppanelprojectionleft" Type="float" />
+          <Property Name="toppanelprojectionright" Type="float" />
+          <Property Name="vprofiledepth" Type="float" />
+          <Property Name="vprofilewidth" Type="float" />
+          <Property Name="wallthickness" Type="float" />
+          <Property Name="widthbottom" Type="float" />
+          <Property Name="widthtop" Type="float" />
+        </EntityType>
+        <EntityType Name="tblModule">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="parentvariant" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="count" Type="smallint" />
+          <Property Name="devicetag" Type="nvarchar" MaxLength="255" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="moduleid" Type="nvarchar" MaxLength="16" />
+          <Property Name="parentvariant" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMountingPanelPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="angle" Type="float" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="location" Type="int" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+          <Property Name="xpos" Type="float" />
+          <Property Name="ypos" Type="float" />
+          <Property Name="zpos" Type="float" />
+        </EntityType>
+        <EntityType Name="tblOption">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tblPart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="accessoriesidentifier" Type="nvarchar" MaxLength="100" />
+          <Property Name="canbelinedup" Type="bit" Nullable="false" />
+          <Property Name="certificate" Type="nvarchar" MaxLength="50" />
+          <Property Name="certificate_ATEX" Type="nvarchar" MaxLength="50" />
+          <Property Name="certificate_CE" Type="bit" Nullable="false" />
+          <Property Name="certificate_UL" Type="nvarchar" MaxLength="50" />
+          <Property Name="certificate_VDE" Type="nvarchar" MaxLength="50" />
+          <Property Name="class" Type="smallint" />
+          <Property Name="codeletter" Type="nvarchar" MaxLength="30" />
+          <Property Name="construction" Type="nvarchar" MaxLength="40" />
+          <Property Name="craftcooling" Type="bit" Nullable="false" />
+          <Property Name="craftelectro" Type="bit" Nullable="false" />
+          <Property Name="craftfluid" Type="bit" Nullable="false" />
+          <Property Name="crafthydraulic" Type="bit" Nullable="false" />
+          <Property Name="craftlubrication" Type="bit" Nullable="false" />
+          <Property Name="craftmechanic" Type="bit" Nullable="false" />
+          <Property Name="craftpneumatic" Type="bit" Nullable="false" />
+          <Property Name="craftprocess" Type="bit" Nullable="false" />
+          <Property Name="craftcoolinglubricant" Type="bit" Nullable="false" />
+          <Property Name="craftgastechnology" Type="bit" Nullable="false" />
+          <Property Name="craftfluidundefined" Type="bit" Nullable="false" />
+          <Property Name="create" Type="nvarchar" MaxLength="40" />
+          <Property Name="depth" Type="float" />
+          <Property Name="depthspacingfront" Type="float" />
+          <Property Name="depthspacingrear" Type="float" />
+          <Property Name="description1" Type="nvarchar(max)" />
+          <Property Name="description2" Type="nvarchar(max)" />
+          <Property Name="description3" Type="nvarchar(max)" />
+          <Property Name="discount" Type="float" />
+          <Property Name="discontinued" Type="bit" Nullable="false" />
+          <Property Name="edpchecksum" Type="nvarchar" MaxLength="40" />
+          <Property Name="ecabinetmacro" Type="nvarchar" MaxLength="255" />
+          <Property Name="erpnr" Type="nvarchar" MaxLength="50" />
+          <Property Name="externalDocument1" Type="nvarchar(max)" />
+          <Property Name="externalDocument2" Type="nvarchar(max)" />
+          <Property Name="externalDocument3" Type="nvarchar(max)" />
+          <Property Name="externalplacement" Type="bit" Nullable="false" />
+          <Property Name="functiongroup" Type="nvarchar" MaxLength="30" />
+          <Property Name="graphicmacro" Type="nvarchar" MaxLength="255" />
+          <Property Name="groupnumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="groupsymbolmacro" Type="nvarchar" MaxLength="255" />
+          <Property Name="height" Type="float" />
+          <Property Name="heightspacingabove" Type="float" />
+          <Property Name="heightspacingbelow" Type="float" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="identcode" Type="nvarchar" MaxLength="20" />
+          <Property Name="identtype" Type="nvarchar" MaxLength="20" />
+          <Property Name="installationdepth" Type="float" />
+          <Property Name="isaccessory" Type="bit" Nullable="false" />
+          <Property Name="lastchange" Type="nvarchar" MaxLength="40" />
+          <Property Name="lifetime" Type="nvarchar" MaxLength="16" />
+          <Property Name="macro3d" Type="nvarchar" MaxLength="255" />
+          <Property Name="maintenance" Type="nvarchar" MaxLength="16" />
+          <Property Name="manufacturer" Type="nvarchar" MaxLength="30" />
+          <Property Name="snapheightmiddleoffset" Type="float" />
+          <Property Name="mountinglocation" Type="int" />
+          <Property Name="mountingspace" Type="float" />
+          <Property Name="note" Type="nvarchar(max)" />
+          <Property Name="ordernr" Type="nvarchar" MaxLength="120" />
+          <Property Name="packagingprice1" Type="money" />
+          <Property Name="packagingprice2" Type="money" />
+          <Property Name="packagingquantity" Type="float" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="picturefile" Type="nvarchar" MaxLength="255" />
+          <Property Name="piecetype" Type="nvarchar" MaxLength="10" />
+          <Property Name="priceunit" Type="smallint" />
+          <Property Name="productgroup" Type="smallint" />
+          <Property Name="productsubgroup" Type="smallint" />
+          <Property Name="producttopgroup" Type="smallint" />
+          <Property Name="purchaseprice1" Type="money" />
+          <Property Name="purchaseprice2" Type="money" />
+          <Property Name="quantityunit" Type="nvarchar(max)" />
+          <Property Name="reportid" Type="nvarchar" MaxLength="20" />
+          <Property Name="salesprice1" Type="money" />
+          <Property Name="salesprice2" Type="money" />
+          <Property Name="snapheight" Type="float" />
+          <Property Name="spare" Type="nvarchar" MaxLength="16" />
+          <Property Name="stress" Type="nvarchar" MaxLength="16" />
+          <Property Name="supplier" Type="nvarchar" MaxLength="30" />
+          <Property Name="terminal" Type="nvarchar" MaxLength="40" />
+          <Property Name="terminaloffsetx" Type="float" />
+          <Property Name="terminaloffsety" Type="float" />
+          <Property Name="typenr" Type="nvarchar" MaxLength="255" />
+          <Property Name="uniqueid" Type="nvarchar" MaxLength="50" />
+          <Property Name="usage" Type="nvarchar" MaxLength="16" />
+          <Property Name="wear" Type="nvarchar" MaxLength="16" />
+          <Property Name="weight" Type="float" />
+          <Property Name="width" Type="float" />
+          <Property Name="widthspacingleft" Type="float" />
+          <Property Name="widthspacingright" Type="float" />
+        </EntityType>
+        <EntityType Name="tblPartConstructionPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="40" />
+          <Property Name="offsetx" Type="float" />
+          <Property Name="offsety" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'EPLAN_2.5_PARTS.dbo.tblQueryPart' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblQueryPart">
+          <Property Name="class" Type="smallint" />
+          <Property Name="id" Type="int" />
+          <Property Name="idqtext" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'EPLAN_2.5_PARTS.dbo.tblQueryStatus' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblQueryStatus">
+          <Property Name="id" Type="int" />
+          <Property Name="class" Type="smallint" />
+          <Property Name="lastchange" Type="nvarchar" MaxLength="40" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'EPLAN_2.5_PARTS.dbo.tblQueryText' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblQueryText">
+          <Property Name="id" Type="int" />
+          <Property Name="qtext" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <EntityType Name="tblSafetyRelatedValuePosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="posid" Type="smallint" Nullable="false" />
+          <Property Name="hierarchy1" Type="nvarchar(max)" />
+          <Property Name="hierarchy2" Type="nvarchar(max)" />
+          <Property Name="hierarchy3" Type="nvarchar(max)" />
+          <Property Name="hierarchy4" Type="nvarchar(max)" />
+          <Property Name="hierarchy5" Type="nvarchar(max)" />
+          <Property Name="input" Type="bit" Nullable="false" />
+          <Property Name="output" Type="bit" Nullable="false" />
+          <Property Name="logic" Type="bit" Nullable="false" />
+          <Property Name="pl" Type="nvarchar" MaxLength="30" />
+          <Property Name="silcl" Type="nvarchar" MaxLength="30" />
+          <Property Name="pfhd" Type="float" />
+          <Property Name="tmt1" Type="float" />
+          <Property Name="mttfd" Type="float" />
+          <Property Name="lambdad" Type="float" />
+          <Property Name="mttf" Type="float" />
+          <Property Name="mtbf" Type="float" />
+          <Property Name="rdf" Type="float" />
+          <Property Name="b10" Type="float" />
+          <Property Name="b10d" Type="float" />
+        </EntityType>
+        <EntityType Name="tblSupportBarPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="length" Type="float" />
+          <Property Name="partnr" Type="nvarchar" MaxLength="255" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" />
+          <Property Name="xpos" Type="float" />
+          <Property Name="ypos" Type="float" />
+          <Property Name="zpos" Type="float" />
+        </EntityType>
+        <EntityType Name="tblTerminal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="additionallengthdefault" Type="float" />
+          <Property Name="class" Type="smallint" />
+          <Property Name="create" Type="nvarchar" MaxLength="40" />
+          <Property Name="designation" Type="nvarchar(max)" />
+          <Property Name="direction" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastchange" Type="nvarchar" MaxLength="40" />
+          <Property Name="name" Type="nvarchar" MaxLength="40" />
+          <Property Name="terminalsizedefault" Type="nvarchar" MaxLength="20" />
+          <Property Name="typedefault" Type="int" />
+          <Property Name="typeofterminaldefault" Type="int" />
+        </EntityType>
+        <EntityType Name="tblTerminalPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="additionallength" Type="float" />
+          <Property Name="devicetag" Type="nvarchar" MaxLength="255" />
+          <Property Name="direction" Type="int" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="level" Type="smallint" />
+          <Property Name="maxcrosssection" Type="float" />
+          <Property Name="maxwirecount" Type="int" />
+          <Property Name="mincrosssection" Type="float" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="pos" Type="smallint" Nullable="false" />
+          <Property Name="targetinfo" Type="smallint" />
+          <Property Name="terminalsize" Type="nvarchar" MaxLength="20" />
+          <Property Name="twinsleeve" Type="bit" Nullable="false" />
+          <Property Name="type" Type="int" />
+          <Property Name="typeofterminal" Type="int" />
+          <Property Name="xpos" Type="float" />
+          <Property Name="ypos" Type="float" />
+          <Property Name="zpos" Type="float" />
+          <Property Name="xdir" Type="float" />
+          <Property Name="ydir" Type="float" />
+          <Property Name="zdir" Type="float" />
+        </EntityType>
+        <EntityType Name="tblVariant">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="variant" />
+          </Key>
+          <Property Name="adjustrange" Type="float" />
+          <Property Name="adressrange" Type="nvarchar" MaxLength="40" />
+          <Property Name="adressrange2" Type="nvarchar" MaxLength="40" />
+          <Property Name="advancecontacts" Type="nvarchar" MaxLength="20" />
+          <Property Name="airgap" Type="nvarchar" MaxLength="30" />
+          <Property Name="assemblyspreaded" Type="bit" Nullable="false" />
+          <Property Name="awgfrom" Type="nvarchar" MaxLength="10" />
+          <Property Name="awgtill" Type="nvarchar" MaxLength="10" />
+          <Property Name="bendingradius" Type="nvarchar" MaxLength="40" />
+          <Property Name="cabledesignation" Type="nvarchar(max)" />
+          <Property Name="cabledisplayform" Type="nvarchar" MaxLength="255" />
+          <Property Name="cablelength" Type="float" />
+          <Property Name="cabletype" Type="nvarchar" MaxLength="40" />
+          <Property Name="cableweight" Type="nvarchar" MaxLength="10" />
+          <Property Name="coding" Type="nvarchar" MaxLength="10" />
+          <Property Name="color" Type="nvarchar(max)" />
+          <Property Name="connection" Type="nvarchar" MaxLength="16" />
+          <Property Name="connectioncrosssection" Type="nvarchar(max)" />
+          <Property Name="connectiondesignation" Type="nvarchar" MaxLength="255" />
+          <Property Name="connectionmethod" Type="nvarchar(max)" />
+          <Property Name="contactarrangement" Type="nvarchar" MaxLength="30" />
+          <Property Name="contacttype" Type="nvarchar(max)" />
+          <Property Name="coppernumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="creepagedistance" Type="nvarchar" MaxLength="30" />
+          <Property Name="crosssectionfrom" Type="nvarchar" MaxLength="10" />
+          <Property Name="crosssectiontill" Type="nvarchar" MaxLength="10" />
+          <Property Name="currentCSA" Type="nvarchar" MaxLength="8" />
+          <Property Name="currentIEC" Type="nvarchar" MaxLength="8" />
+          <Property Name="currentUL" Type="nvarchar" MaxLength="8" />
+          <Property Name="degofprotection" Type="nvarchar(max)" />
+          <Property Name="design" Type="nvarchar(max)" />
+          <Property Name="doordepth" Type="float" />
+          <Property Name="doorheight" Type="float" />
+          <Property Name="doormountingspace" Type="float" />
+          <Property Name="doorwidth" Type="float" />
+          <Property Name="electricalcurrent" Type="nvarchar" MaxLength="30" />
+          <Property Name="electricalpower" Type="nvarchar" MaxLength="8" />
+          <Property Name="firmwareversion" Type="nvarchar" MaxLength="50" />
+          <Property Name="flow" Type="float" />
+          <Property Name="fluidwallthickness" Type="nvarchar" MaxLength="10" />
+          <Property Name="holdingpower" Type="nvarchar" MaxLength="10" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="innerdiameter" Type="nvarchar" MaxLength="16" />
+          <Property Name="intrinsicsafety" Type="bit" Nullable="false" />
+          <Property Name="material" Type="nvarchar(max)" />
+          <Property Name="norm" Type="nvarchar" MaxLength="20" />
+          <Property Name="outerdiameter" Type="nvarchar" MaxLength="16" />
+          <Property Name="paneldepth" Type="float" />
+          <Property Name="panelheight" Type="float" />
+          <Property Name="panelmountingspace" Type="float" />
+          <Property Name="panelwidth" Type="float" />
+          <Property Name="pincount" Type="nvarchar" MaxLength="30" />
+          <Property Name="pipeclass" Type="nvarchar" MaxLength="20" />
+          <Property Name="plcdeviceid" Type="nvarchar" MaxLength="70" />
+          <Property Name="plcisbuscoupler" Type="bit" Nullable="false" />
+          <Property Name="plcisbusdistributor" Type="bit" Nullable="false" />
+          <Property Name="plciscpu" Type="bit" Nullable="false" />
+          <Property Name="plcispowersupply" Type="bit" Nullable="false" />
+          <Property Name="plcobjectdescription" Type="nvarchar" MaxLength="70" />
+          <Property Name="plcstationtype" Type="nvarchar" MaxLength="50" />
+          <Property Name="plctype" Type="nvarchar" MaxLength="70" />
+          <Property Name="powerdissipation" Type="nvarchar" MaxLength="10" />
+          <Property Name="pressure" Type="float" />
+          <Property Name="pressurelevel" Type="nvarchar" MaxLength="20" />
+          <Property Name="shortcircuitresistant" Type="bit" Nullable="false" />
+          <Property Name="standardinvers" Type="nvarchar" MaxLength="10" />
+          <Property Name="strokelength" Type="nvarchar" MaxLength="16" />
+          <Property Name="symbolfile" Type="nvarchar" MaxLength="30" />
+          <Property Name="symbolnr" Type="nvarchar" MaxLength="30" />
+          <Property Name="technicalcharacteristics" Type="nvarchar" MaxLength="60" />
+          <Property Name="thread" Type="nvarchar" MaxLength="16" />
+          <Property Name="triggercurrent" Type="nvarchar" MaxLength="10" />
+          <Property Name="variant" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="voltage" Type="nvarchar" MaxLength="10" />
+          <Property Name="voltageCSA" Type="nvarchar" MaxLength="8" />
+          <Property Name="voltageIEC" Type="nvarchar" MaxLength="8" />
+          <Property Name="voltageUL" Type="nvarchar" MaxLength="8" />
+          <Property Name="voltagetype" Type="nvarchar" MaxLength="20" />
+          <Property Name="widthrating" Type="nvarchar" MaxLength="20" />
+          <Property Name="wirecount" Type="nvarchar" MaxLength="6" />
+          <Property Name="wirecrosssection" Type="nvarchar" MaxLength="10" />
+          <Property Name="wirecrosssectionanddiameter" Type="nvarchar" MaxLength="60" />
+          <Property Name="wirecrosssectionunit" Type="smallint" />
+          <Property Name="_uniqueid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PartsModelStoreContainer">
+          <EntitySet Name="tblAccessoryList" EntityType="Self.tblAccessoryList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAccessoryListPosition" EntityType="Self.tblAccessoryListPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAccessoryPlacement" EntityType="Self.tblAccessoryPlacement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAccessoryPlacementPosition" EntityType="Self.tblAccessoryPlacementPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAccessoryPosition" EntityType="Self.tblAccessoryPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAssembly" EntityType="Self.tblAssembly" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBlockingSurfacePosition" EntityType="Self.tblBlockingSurfacePosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConstruction" EntityType="Self.tblConstruction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDoorPosition" EntityType="Self.tblDoorPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDrillingPosition" EntityType="Self.tblDrillingPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFreeProperty" EntityType="Self.tblFreeProperty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFunctionTemplate" EntityType="Self.tblFunctionTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMechanic" EntityType="Self.tblMechanic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblModule" EntityType="Self.tblModule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMountingPanelPosition" EntityType="Self.tblMountingPanelPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOption" EntityType="Self.tblOption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPart" EntityType="Self.tblPart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPartConstructionPosition" EntityType="Self.tblPartConstructionPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSafetyRelatedValuePosition" EntityType="Self.tblSafetyRelatedValuePosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSupportBarPosition" EntityType="Self.tblSupportBarPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTerminal" EntityType="Self.tblTerminal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTerminalPosition" EntityType="Self.tblTerminalPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVariant" EntityType="Self.tblVariant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAddress" EntityType="Self.tblAddress" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblAddress].[class] AS [class], 
+    [tblAddress].[email] AS [email], 
+    [tblAddress].[fax] AS [fax], 
+    [tblAddress].[id] AS [id], 
+    [tblAddress].[lastchange] AS [lastchange], 
+    [tblAddress].[longname] AS [longname], 
+    [tblAddress].[name1] AS [name1], 
+    [tblAddress].[name2] AS [name2], 
+    [tblAddress].[name3] AS [name3], 
+    [tblAddress].[note] AS [note], 
+    [tblAddress].[number] AS [number], 
+    [tblAddress].[phone] AS [phone], 
+    [tblAddress].[pobox] AS [pobox], 
+    [tblAddress].[shortname] AS [shortname], 
+    [tblAddress].[state] AS [state], 
+    [tblAddress].[street] AS [street], 
+    [tblAddress].[title] AS [title], 
+    [tblAddress].[town] AS [town], 
+    [tblAddress].[zippobox] AS [zippobox], 
+    [tblAddress].[ziptown] AS [ziptown]
+    FROM [dbo].[tblAddress] AS [tblAddress]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblAttribute" EntityType="Self.tblAttribute" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblAttribute].[class] AS [class], 
+    [tblAttribute].[id] AS [id], 
+    [tblAttribute].[pos] AS [pos], 
+    [tblAttribute].[val] AS [val], 
+    [tblAttribute].[_uniqueid] AS [_uniqueid]
+    FROM [dbo].[tblAttribute] AS [tblAttribute]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PartsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAccessoryList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="Int16" />
+          <Property Name="create" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastchange" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblAccessoryListPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="placement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblAccessoryPlacement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="Int16" />
+          <Property Name="create" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastchange" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblAccessoryPlacementPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="referencepoint" Type="Int16" />
+          <Property Name="rotation" Type="Double" />
+          <Property Name="xspacing" Type="Double" />
+          <Property Name="yspacing" Type="Double" />
+          <Property Name="zspacing" Type="Double" />
+          <Property Name="movable" Type="Boolean" Nullable="false" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblAccessoryPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="necessary" Type="Boolean" Nullable="false" />
+          <Property Name="parttype" Type="Int16" />
+          <Property Name="placement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblAssembly">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="parentvariant" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="count" Type="Int16" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="parentvariant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="additionaltext" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="posnr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblBlockingSurfacePosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="frontside" Type="Boolean" Nullable="false" />
+          <Property Name="height" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="width" Type="Double" />
+          <Property Name="xpos" Type="Double" />
+          <Property Name="ypos" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblConstruction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="Int16" />
+          <Property Name="create" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastchange" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="variant" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDoorPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="xpos" Type="Double" />
+          <Property Name="ypos" Type="Double" />
+          <Property Name="zpos" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblDrillingPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="angle" Type="Double" />
+          <Property Name="dimension1" Type="Double" />
+          <Property Name="dimension2" Type="Double" />
+          <Property Name="dimension3" Type="Double" />
+          <Property Name="drillnthhole" Type="Int32" />
+          <Property Name="fabricatealways" Type="Boolean" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="outlinename" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="spacingend" Type="Double" />
+          <Property Name="spacingrepeat" Type="Double" />
+          <Property Name="subtype" Type="Int32" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="xpos" Type="Double" />
+          <Property Name="ypos" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblFreeProperty">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="val" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblFunctionTemplate">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+            <PropertyRef Name="variant" />
+          </Key>
+          <Property Name="additionaldescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="characteristics" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="connectioncrosssection" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="connectionDesignation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="connectiondescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="functiondefcategory" Type="Int16" />
+          <Property Name="functiondefgroup" Type="Int16" />
+          <Property Name="functiondefid" Type="Int16" />
+          <Property Name="hasled" Type="Boolean" Nullable="false" />
+          <Property Name="hasplugadapter" Type="Boolean" Nullable="false" />
+          <Property Name="hpdlink" Type="Int16" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idx1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="idx2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="intrinsicsafety" Type="Boolean" Nullable="false" />
+          <Property Name="nesteddevicetag" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="pipeclass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="plcbussystem" Type="Int16" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="safetyrelevant" Type="Boolean" Nullable="false" />
+          <Property Name="symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="symbolmacro" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="terminalfunction" Type="Int16" />
+          <Property Name="terminallabeltype" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="terminalNr" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMechanic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="barcount" Type="Int16" />
+          <Property Name="bardistance" Type="Double" />
+          <Property Name="bargeometry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="barmountingplatedistance" Type="Double" />
+          <Property Name="bottompaneldepth" Type="Double" />
+          <Property Name="bottompaneldistance" Type="Double" />
+          <Property Name="bottompanelprojectionback" Type="Double" />
+          <Property Name="bottompanelprojectionfront" Type="Double" />
+          <Property Name="bottompanelprojectionleft" Type="Double" />
+          <Property Name="bottompanelprojectionright" Type="Double" />
+          <Property Name="busbarholderpartnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="busbarholdervariant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="busbarrailpartnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="busbarrailvariant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="bundlemindiameter" Type="Double" />
+          <Property Name="bundlemaxdiameter" Type="Double" />
+          <Property Name="conductibility" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="deliverylength" Type="Double" />
+          <Property Name="dooroffsetright" Type="Double" />
+          <Property Name="dooroffsettop" Type="Double" />
+          <Property Name="doorthickness" Type="Double" />
+          <Property Name="doortrabbet" Type="Double" />
+          <Property Name="doortype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hingeposition" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="insertpointoffsetx" Type="Double" />
+          <Property Name="profiledepth" Type="Double" />
+          <Property Name="profiledistance" Type="Double" />
+          <Property Name="profileheight" Type="Double" />
+          <Property Name="railcrosssection" Type="Double" />
+          <Property Name="railmaterial" Type="Int16" />
+          <Property Name="rearpaneldistance" Type="Double" />
+          <Property Name="rearpaneldpepth" Type="Double" />
+          <Property Name="rearpanelprojectionbottom" Type="Double" />
+          <Property Name="rearpanelprojectionleft" Type="Double" />
+          <Property Name="rearpanelprojectionright" Type="Double" />
+          <Property Name="rearpanelprojectiontop" Type="Double" />
+          <Property Name="sidepaneldepth" Type="Double" />
+          <Property Name="sidepaneldistance" Type="Double" />
+          <Property Name="sidepanelprojectionback" Type="Double" />
+          <Property Name="sidepanelprojectionbottom" Type="Double" />
+          <Property Name="sidepanelprojectionfront" Type="Double" />
+          <Property Name="sidepanelprojectiontop" Type="Double" />
+          <Property Name="temperaturecoefficient" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="toppaneldistance" Type="Double" />
+          <Property Name="toppaneldpepth" Type="Double" />
+          <Property Name="toppanelprojectionback" Type="Double" />
+          <Property Name="toppanelprojectionfront" Type="Double" />
+          <Property Name="toppanelprojectionleft" Type="Double" />
+          <Property Name="toppanelprojectionright" Type="Double" />
+          <Property Name="vprofiledepth" Type="Double" />
+          <Property Name="vprofilewidth" Type="Double" />
+          <Property Name="wallthickness" Type="Double" />
+          <Property Name="widthbottom" Type="Double" />
+          <Property Name="widthtop" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblModule">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="parentvariant" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="count" Type="Int16" />
+          <Property Name="devicetag" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="moduleid" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="parentvariant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblMountingPanelPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="angle" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="location" Type="Int32" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="xpos" Type="Double" />
+          <Property Name="ypos" Type="Double" />
+          <Property Name="zpos" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblOption">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="accessoriesidentifier" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="canbelinedup" Type="Boolean" Nullable="false" />
+          <Property Name="certificate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="certificate_ATEX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="certificate_CE" Type="Boolean" Nullable="false" />
+          <Property Name="certificate_UL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="certificate_VDE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="class" Type="Int16" />
+          <Property Name="codeletter" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="construction" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="craftcooling" Type="Boolean" Nullable="false" />
+          <Property Name="craftelectro" Type="Boolean" Nullable="false" />
+          <Property Name="craftfluid" Type="Boolean" Nullable="false" />
+          <Property Name="crafthydraulic" Type="Boolean" Nullable="false" />
+          <Property Name="craftlubrication" Type="Boolean" Nullable="false" />
+          <Property Name="craftmechanic" Type="Boolean" Nullable="false" />
+          <Property Name="craftpneumatic" Type="Boolean" Nullable="false" />
+          <Property Name="craftprocess" Type="Boolean" Nullable="false" />
+          <Property Name="craftcoolinglubricant" Type="Boolean" Nullable="false" />
+          <Property Name="craftgastechnology" Type="Boolean" Nullable="false" />
+          <Property Name="craftfluidundefined" Type="Boolean" Nullable="false" />
+          <Property Name="create" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="depth" Type="Double" />
+          <Property Name="depthspacingfront" Type="Double" />
+          <Property Name="depthspacingrear" Type="Double" />
+          <Property Name="description1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="discount" Type="Double" />
+          <Property Name="discontinued" Type="Boolean" Nullable="false" />
+          <Property Name="edpchecksum" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ecabinetmacro" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="erpnr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="externalDocument1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="externalDocument2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="externalDocument3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="externalplacement" Type="Boolean" Nullable="false" />
+          <Property Name="functiongroup" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="graphicmacro" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="groupnumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="groupsymbolmacro" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="height" Type="Double" />
+          <Property Name="heightspacingabove" Type="Double" />
+          <Property Name="heightspacingbelow" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="identcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="identtype" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="installationdepth" Type="Double" />
+          <Property Name="isaccessory" Type="Boolean" Nullable="false" />
+          <Property Name="lastchange" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="lifetime" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="macro3d" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="maintenance" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="manufacturer" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="snapheightmiddleoffset" Type="Double" />
+          <Property Name="mountinglocation" Type="Int32" />
+          <Property Name="mountingspace" Type="Double" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ordernr" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="packagingprice1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="packagingprice2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="packagingquantity" Type="Double" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="picturefile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="piecetype" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="priceunit" Type="Int16" />
+          <Property Name="productgroup" Type="Int16" />
+          <Property Name="productsubgroup" Type="Int16" />
+          <Property Name="producttopgroup" Type="Int16" />
+          <Property Name="purchaseprice1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="purchaseprice2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="quantityunit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="reportid" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="salesprice1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="salesprice2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="snapheight" Type="Double" />
+          <Property Name="spare" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="stress" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="supplier" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="terminal" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="terminaloffsetx" Type="Double" />
+          <Property Name="terminaloffsety" Type="Double" />
+          <Property Name="typenr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uniqueid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usage" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="wear" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="weight" Type="Double" />
+          <Property Name="width" Type="Double" />
+          <Property Name="widthspacingleft" Type="Double" />
+          <Property Name="widthspacingright" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblPartConstructionPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="offsetx" Type="Double" />
+          <Property Name="offsety" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblSafetyRelatedValuePosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="posid" Type="Int16" Nullable="false" />
+          <Property Name="hierarchy1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hierarchy2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hierarchy3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hierarchy4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hierarchy5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="input" Type="Boolean" Nullable="false" />
+          <Property Name="output" Type="Boolean" Nullable="false" />
+          <Property Name="logic" Type="Boolean" Nullable="false" />
+          <Property Name="pl" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="silcl" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="pfhd" Type="Double" />
+          <Property Name="tmt1" Type="Double" />
+          <Property Name="mttfd" Type="Double" />
+          <Property Name="lambdad" Type="Double" />
+          <Property Name="mttf" Type="Double" />
+          <Property Name="mtbf" Type="Double" />
+          <Property Name="rdf" Type="Double" />
+          <Property Name="b10" Type="Double" />
+          <Property Name="b10d" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblSupportBarPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="length" Type="Double" />
+          <Property Name="partnr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="xpos" Type="Double" />
+          <Property Name="ypos" Type="Double" />
+          <Property Name="zpos" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblTerminal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="additionallengthdefault" Type="Double" />
+          <Property Name="class" Type="Int16" />
+          <Property Name="create" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="direction" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastchange" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="terminalsizedefault" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="typedefault" Type="Int32" />
+          <Property Name="typeofterminaldefault" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblTerminalPosition">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+          </Key>
+          <Property Name="additionallength" Type="Double" />
+          <Property Name="devicetag" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="direction" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="level" Type="Int16" />
+          <Property Name="maxcrosssection" Type="Double" />
+          <Property Name="maxwirecount" Type="Int32" />
+          <Property Name="mincrosssection" Type="Double" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="targetinfo" Type="Int16" />
+          <Property Name="terminalsize" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="twinsleeve" Type="Boolean" Nullable="false" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="typeofterminal" Type="Int32" />
+          <Property Name="xpos" Type="Double" />
+          <Property Name="ypos" Type="Double" />
+          <Property Name="zpos" Type="Double" />
+          <Property Name="xdir" Type="Double" />
+          <Property Name="ydir" Type="Double" />
+          <Property Name="zdir" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblVariant">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="variant" />
+          </Key>
+          <Property Name="adjustrange" Type="Double" />
+          <Property Name="adressrange" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="adressrange2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="advancecontacts" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="airgap" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="assemblyspreaded" Type="Boolean" Nullable="false" />
+          <Property Name="awgfrom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="awgtill" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="bendingradius" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="cabledesignation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cabledisplayform" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cablelength" Type="Double" />
+          <Property Name="cabletype" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="cableweight" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="coding" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="connection" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="connectioncrosssection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="connectiondesignation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="connectionmethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contactarrangement" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="contacttype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="coppernumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="creepagedistance" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="crosssectionfrom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="crosssectiontill" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="currentCSA" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="currentIEC" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="currentUL" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="degofprotection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="design" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="doordepth" Type="Double" />
+          <Property Name="doorheight" Type="Double" />
+          <Property Name="doormountingspace" Type="Double" />
+          <Property Name="doorwidth" Type="Double" />
+          <Property Name="electricalcurrent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="electricalpower" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="firmwareversion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flow" Type="Double" />
+          <Property Name="fluidwallthickness" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="holdingpower" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="innerdiameter" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="intrinsicsafety" Type="Boolean" Nullable="false" />
+          <Property Name="material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="norm" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="outerdiameter" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="paneldepth" Type="Double" />
+          <Property Name="panelheight" Type="Double" />
+          <Property Name="panelmountingspace" Type="Double" />
+          <Property Name="panelwidth" Type="Double" />
+          <Property Name="pincount" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="pipeclass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="plcdeviceid" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="plcisbuscoupler" Type="Boolean" Nullable="false" />
+          <Property Name="plcisbusdistributor" Type="Boolean" Nullable="false" />
+          <Property Name="plciscpu" Type="Boolean" Nullable="false" />
+          <Property Name="plcispowersupply" Type="Boolean" Nullable="false" />
+          <Property Name="plcobjectdescription" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="plcstationtype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="plctype" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="powerdissipation" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="pressure" Type="Double" />
+          <Property Name="pressurelevel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="shortcircuitresistant" Type="Boolean" Nullable="false" />
+          <Property Name="standardinvers" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="strokelength" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="symbolfile" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="symbolnr" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="technicalcharacteristics" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="thread" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="triggercurrent" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="variant" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="voltage" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="voltageCSA" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="voltageIEC" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="voltageUL" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="voltagetype" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="widthrating" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="wirecount" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="wirecrosssection" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="wirecrosssectionanddiameter" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="wirecrosssectionunit" Type="Int16" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tblAddress">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="class" Type="Int16" />
+          <Property Name="email" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastchange" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="longname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name1" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="name3" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="number" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="pobox" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="shortname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="street" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="town" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="zippobox" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ziptown" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblAttribute">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="pos" />
+            <PropertyRef Name="C_uniqueid" />
+          </Key>
+          <Property Name="class" Type="Int16" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="pos" Type="Int16" Nullable="false" />
+          <Property Name="val" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="C_uniqueid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="PartsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAccessoryLists" EntityType="Self.tblAccessoryList" />
+          <EntitySet Name="tblAccessoryListPositions" EntityType="Self.tblAccessoryListPosition" />
+          <EntitySet Name="tblAccessoryPlacements" EntityType="Self.tblAccessoryPlacement" />
+          <EntitySet Name="tblAccessoryPlacementPositions" EntityType="Self.tblAccessoryPlacementPosition" />
+          <EntitySet Name="tblAccessoryPositions" EntityType="Self.tblAccessoryPosition" />
+          <EntitySet Name="tblAssemblies" EntityType="Self.tblAssembly" />
+          <EntitySet Name="tblBlockingSurfacePositions" EntityType="Self.tblBlockingSurfacePosition" />
+          <EntitySet Name="tblConstructions" EntityType="Self.tblConstruction" />
+          <EntitySet Name="tblDoorPositions" EntityType="Self.tblDoorPosition" />
+          <EntitySet Name="tblDrillingPositions" EntityType="Self.tblDrillingPosition" />
+          <EntitySet Name="tblFreeProperties" EntityType="Self.tblFreeProperty" />
+          <EntitySet Name="tblFunctionTemplates" EntityType="Self.tblFunctionTemplate" />
+          <EntitySet Name="tblMechanics" EntityType="Self.tblMechanic" />
+          <EntitySet Name="tblModules" EntityType="Self.tblModule" />
+          <EntitySet Name="tblMountingPanelPositions" EntityType="Self.tblMountingPanelPosition" />
+          <EntitySet Name="tblOptions" EntityType="Self.tblOption" />
+          <EntitySet Name="Parts" EntityType="Self.tblPart" />
+          <EntitySet Name="tblPartConstructionPositions" EntityType="Self.tblPartConstructionPosition" />
+          <EntitySet Name="tblSafetyRelatedValuePositions" EntityType="Self.tblSafetyRelatedValuePosition" />
+          <EntitySet Name="tblSupportBarPositions" EntityType="Self.tblSupportBarPosition" />
+          <EntitySet Name="tblTerminals" EntityType="Self.tblTerminal" />
+          <EntitySet Name="tblTerminalPositions" EntityType="Self.tblTerminalPosition" />
+          <EntitySet Name="tblVariants" EntityType="Self.tblVariant" />
+          <EntitySet Name="tblAddresses" EntityType="Self.tblAddress" />
+          <EntitySet Name="tblAttributes" EntityType="Self.tblAttribute" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PartsModelStoreContainer" CdmEntityContainer="PartsEntities">
+          <EntitySetMapping Name="tblAccessoryLists">
+            <EntityTypeMapping TypeName="PartsModel.tblAccessoryList">
+              <MappingFragment StoreEntitySet="tblAccessoryList">
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="create" ColumnName="create" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastchange" ColumnName="lastchange" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAccessoryListPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblAccessoryListPosition">
+              <MappingFragment StoreEntitySet="tblAccessoryListPosition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="placement" ColumnName="placement" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAccessoryPlacements">
+            <EntityTypeMapping TypeName="PartsModel.tblAccessoryPlacement">
+              <MappingFragment StoreEntitySet="tblAccessoryPlacement">
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="create" ColumnName="create" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastchange" ColumnName="lastchange" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAccessoryPlacementPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblAccessoryPlacementPosition">
+              <MappingFragment StoreEntitySet="tblAccessoryPlacementPosition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="referencepoint" ColumnName="referencepoint" />
+                <ScalarProperty Name="rotation" ColumnName="rotation" />
+                <ScalarProperty Name="xspacing" ColumnName="xspacing" />
+                <ScalarProperty Name="yspacing" ColumnName="yspacing" />
+                <ScalarProperty Name="zspacing" ColumnName="zspacing" />
+                <ScalarProperty Name="movable" ColumnName="movable" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAccessoryPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblAccessoryPosition">
+              <MappingFragment StoreEntitySet="tblAccessoryPosition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="necessary" ColumnName="necessary" />
+                <ScalarProperty Name="parttype" ColumnName="parttype" />
+                <ScalarProperty Name="placement" ColumnName="placement" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAssemblies">
+            <EntityTypeMapping TypeName="PartsModel.tblAssembly">
+              <MappingFragment StoreEntitySet="tblAssembly">
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parentvariant" ColumnName="parentvariant" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="additionaltext" ColumnName="additionaltext" />
+                <ScalarProperty Name="posnr" ColumnName="posnr" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBlockingSurfacePositions">
+            <EntityTypeMapping TypeName="PartsModel.tblBlockingSurfacePosition">
+              <MappingFragment StoreEntitySet="tblBlockingSurfacePosition">
+                <ScalarProperty Name="frontside" ColumnName="frontside" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="xpos" ColumnName="xpos" />
+                <ScalarProperty Name="ypos" ColumnName="ypos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConstructions">
+            <EntityTypeMapping TypeName="PartsModel.tblConstruction">
+              <MappingFragment StoreEntitySet="tblConstruction">
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="create" ColumnName="create" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastchange" ColumnName="lastchange" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDoorPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblDoorPosition">
+              <MappingFragment StoreEntitySet="tblDoorPosition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="xpos" ColumnName="xpos" />
+                <ScalarProperty Name="ypos" ColumnName="ypos" />
+                <ScalarProperty Name="zpos" ColumnName="zpos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDrillingPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblDrillingPosition">
+              <MappingFragment StoreEntitySet="tblDrillingPosition">
+                <ScalarProperty Name="angle" ColumnName="angle" />
+                <ScalarProperty Name="dimension1" ColumnName="dimension1" />
+                <ScalarProperty Name="dimension2" ColumnName="dimension2" />
+                <ScalarProperty Name="dimension3" ColumnName="dimension3" />
+                <ScalarProperty Name="drillnthhole" ColumnName="drillnthhole" />
+                <ScalarProperty Name="fabricatealways" ColumnName="fabricatealways" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="outlinename" ColumnName="outlinename" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="spacingend" ColumnName="spacingend" />
+                <ScalarProperty Name="spacingrepeat" ColumnName="spacingrepeat" />
+                <ScalarProperty Name="subtype" ColumnName="subtype" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="xpos" ColumnName="xpos" />
+                <ScalarProperty Name="ypos" ColumnName="ypos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFreeProperties">
+            <EntityTypeMapping TypeName="PartsModel.tblFreeProperty">
+              <MappingFragment StoreEntitySet="tblFreeProperty">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="val" ColumnName="val" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFunctionTemplates">
+            <EntityTypeMapping TypeName="PartsModel.tblFunctionTemplate">
+              <MappingFragment StoreEntitySet="tblFunctionTemplate">
+                <ScalarProperty Name="additionaldescription" ColumnName="additionaldescription" />
+                <ScalarProperty Name="characteristics" ColumnName="characteristics" />
+                <ScalarProperty Name="connectioncrosssection" ColumnName="connectioncrosssection" />
+                <ScalarProperty Name="connectionDesignation" ColumnName="connectionDesignation" />
+                <ScalarProperty Name="connectiondescription" ColumnName="connectiondescription" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="functiondefcategory" ColumnName="functiondefcategory" />
+                <ScalarProperty Name="functiondefgroup" ColumnName="functiondefgroup" />
+                <ScalarProperty Name="functiondefid" ColumnName="functiondefid" />
+                <ScalarProperty Name="hasled" ColumnName="hasled" />
+                <ScalarProperty Name="hasplugadapter" ColumnName="hasplugadapter" />
+                <ScalarProperty Name="hpdlink" ColumnName="hpdlink" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idx1" ColumnName="idx1" />
+                <ScalarProperty Name="idx2" ColumnName="idx2" />
+                <ScalarProperty Name="intrinsicsafety" ColumnName="intrinsicsafety" />
+                <ScalarProperty Name="nesteddevicetag" ColumnName="nesteddevicetag" />
+                <ScalarProperty Name="pipeclass" ColumnName="pipeclass" />
+                <ScalarProperty Name="plcbussystem" ColumnName="plcbussystem" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="safetyrelevant" ColumnName="safetyrelevant" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="symbolmacro" ColumnName="symbolmacro" />
+                <ScalarProperty Name="terminalfunction" ColumnName="terminalfunction" />
+                <ScalarProperty Name="terminallabeltype" ColumnName="terminallabeltype" />
+                <ScalarProperty Name="terminalNr" ColumnName="terminalNr" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMechanics">
+            <EntityTypeMapping TypeName="PartsModel.tblMechanic">
+              <MappingFragment StoreEntitySet="tblMechanic">
+                <ScalarProperty Name="barcount" ColumnName="barcount" />
+                <ScalarProperty Name="bardistance" ColumnName="bardistance" />
+                <ScalarProperty Name="bargeometry" ColumnName="bargeometry" />
+                <ScalarProperty Name="barmountingplatedistance" ColumnName="barmountingplatedistance" />
+                <ScalarProperty Name="bottompaneldepth" ColumnName="bottompaneldepth" />
+                <ScalarProperty Name="bottompaneldistance" ColumnName="bottompaneldistance" />
+                <ScalarProperty Name="bottompanelprojectionback" ColumnName="bottompanelprojectionback" />
+                <ScalarProperty Name="bottompanelprojectionfront" ColumnName="bottompanelprojectionfront" />
+                <ScalarProperty Name="bottompanelprojectionleft" ColumnName="bottompanelprojectionleft" />
+                <ScalarProperty Name="bottompanelprojectionright" ColumnName="bottompanelprojectionright" />
+                <ScalarProperty Name="busbarholderpartnr" ColumnName="busbarholderpartnr" />
+                <ScalarProperty Name="busbarholdervariant" ColumnName="busbarholdervariant" />
+                <ScalarProperty Name="busbarrailpartnr" ColumnName="busbarrailpartnr" />
+                <ScalarProperty Name="busbarrailvariant" ColumnName="busbarrailvariant" />
+                <ScalarProperty Name="bundlemindiameter" ColumnName="bundlemindiameter" />
+                <ScalarProperty Name="bundlemaxdiameter" ColumnName="bundlemaxdiameter" />
+                <ScalarProperty Name="conductibility" ColumnName="conductibility" />
+                <ScalarProperty Name="deliverylength" ColumnName="deliverylength" />
+                <ScalarProperty Name="dooroffsetright" ColumnName="dooroffsetright" />
+                <ScalarProperty Name="dooroffsettop" ColumnName="dooroffsettop" />
+                <ScalarProperty Name="doorthickness" ColumnName="doorthickness" />
+                <ScalarProperty Name="doortrabbet" ColumnName="doortrabbet" />
+                <ScalarProperty Name="doortype" ColumnName="doortype" />
+                <ScalarProperty Name="hingeposition" ColumnName="hingeposition" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="insertpointoffsetx" ColumnName="insertpointoffsetx" />
+                <ScalarProperty Name="profiledepth" ColumnName="profiledepth" />
+                <ScalarProperty Name="profiledistance" ColumnName="profiledistance" />
+                <ScalarProperty Name="profileheight" ColumnName="profileheight" />
+                <ScalarProperty Name="railcrosssection" ColumnName="railcrosssection" />
+                <ScalarProperty Name="railmaterial" ColumnName="railmaterial" />
+                <ScalarProperty Name="rearpaneldistance" ColumnName="rearpaneldistance" />
+                <ScalarProperty Name="rearpaneldpepth" ColumnName="rearpaneldpepth" />
+                <ScalarProperty Name="rearpanelprojectionbottom" ColumnName="rearpanelprojectionbottom" />
+                <ScalarProperty Name="rearpanelprojectionleft" ColumnName="rearpanelprojectionleft" />
+                <ScalarProperty Name="rearpanelprojectionright" ColumnName="rearpanelprojectionright" />
+                <ScalarProperty Name="rearpanelprojectiontop" ColumnName="rearpanelprojectiontop" />
+                <ScalarProperty Name="sidepaneldepth" ColumnName="sidepaneldepth" />
+                <ScalarProperty Name="sidepaneldistance" ColumnName="sidepaneldistance" />
+                <ScalarProperty Name="sidepanelprojectionback" ColumnName="sidepanelprojectionback" />
+                <ScalarProperty Name="sidepanelprojectionbottom" ColumnName="sidepanelprojectionbottom" />
+                <ScalarProperty Name="sidepanelprojectionfront" ColumnName="sidepanelprojectionfront" />
+                <ScalarProperty Name="sidepanelprojectiontop" ColumnName="sidepanelprojectiontop" />
+                <ScalarProperty Name="temperaturecoefficient" ColumnName="temperaturecoefficient" />
+                <ScalarProperty Name="toppaneldistance" ColumnName="toppaneldistance" />
+                <ScalarProperty Name="toppaneldpepth" ColumnName="toppaneldpepth" />
+                <ScalarProperty Name="toppanelprojectionback" ColumnName="toppanelprojectionback" />
+                <ScalarProperty Name="toppanelprojectionfront" ColumnName="toppanelprojectionfront" />
+                <ScalarProperty Name="toppanelprojectionleft" ColumnName="toppanelprojectionleft" />
+                <ScalarProperty Name="toppanelprojectionright" ColumnName="toppanelprojectionright" />
+                <ScalarProperty Name="vprofiledepth" ColumnName="vprofiledepth" />
+                <ScalarProperty Name="vprofilewidth" ColumnName="vprofilewidth" />
+                <ScalarProperty Name="wallthickness" ColumnName="wallthickness" />
+                <ScalarProperty Name="widthbottom" ColumnName="widthbottom" />
+                <ScalarProperty Name="widthtop" ColumnName="widthtop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblModules">
+            <EntityTypeMapping TypeName="PartsModel.tblModule">
+              <MappingFragment StoreEntitySet="tblModule">
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="devicetag" ColumnName="devicetag" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+                <ScalarProperty Name="parentvariant" ColumnName="parentvariant" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMountingPanelPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblMountingPanelPosition">
+              <MappingFragment StoreEntitySet="tblMountingPanelPosition">
+                <ScalarProperty Name="angle" ColumnName="angle" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="xpos" ColumnName="xpos" />
+                <ScalarProperty Name="ypos" ColumnName="ypos" />
+                <ScalarProperty Name="zpos" ColumnName="zpos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOptions">
+            <EntityTypeMapping TypeName="PartsModel.tblOption">
+              <MappingFragment StoreEntitySet="tblOption">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parts">
+            <EntityTypeMapping TypeName="PartsModel.tblPart">
+              <MappingFragment StoreEntitySet="tblPart">
+                <ScalarProperty Name="accessoriesidentifier" ColumnName="accessoriesidentifier" />
+                <ScalarProperty Name="canbelinedup" ColumnName="canbelinedup" />
+                <ScalarProperty Name="certificate" ColumnName="certificate" />
+                <ScalarProperty Name="certificate_ATEX" ColumnName="certificate_ATEX" />
+                <ScalarProperty Name="certificate_CE" ColumnName="certificate_CE" />
+                <ScalarProperty Name="certificate_UL" ColumnName="certificate_UL" />
+                <ScalarProperty Name="certificate_VDE" ColumnName="certificate_VDE" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="codeletter" ColumnName="codeletter" />
+                <ScalarProperty Name="construction" ColumnName="construction" />
+                <ScalarProperty Name="craftcooling" ColumnName="craftcooling" />
+                <ScalarProperty Name="craftelectro" ColumnName="craftelectro" />
+                <ScalarProperty Name="craftfluid" ColumnName="craftfluid" />
+                <ScalarProperty Name="crafthydraulic" ColumnName="crafthydraulic" />
+                <ScalarProperty Name="craftlubrication" ColumnName="craftlubrication" />
+                <ScalarProperty Name="craftmechanic" ColumnName="craftmechanic" />
+                <ScalarProperty Name="craftpneumatic" ColumnName="craftpneumatic" />
+                <ScalarProperty Name="craftprocess" ColumnName="craftprocess" />
+                <ScalarProperty Name="craftcoolinglubricant" ColumnName="craftcoolinglubricant" />
+                <ScalarProperty Name="craftgastechnology" ColumnName="craftgastechnology" />
+                <ScalarProperty Name="craftfluidundefined" ColumnName="craftfluidundefined" />
+                <ScalarProperty Name="create" ColumnName="create" />
+                <ScalarProperty Name="depth" ColumnName="depth" />
+                <ScalarProperty Name="depthspacingfront" ColumnName="depthspacingfront" />
+                <ScalarProperty Name="depthspacingrear" ColumnName="depthspacingrear" />
+                <ScalarProperty Name="description1" ColumnName="description1" />
+                <ScalarProperty Name="description2" ColumnName="description2" />
+                <ScalarProperty Name="description3" ColumnName="description3" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="discontinued" ColumnName="discontinued" />
+                <ScalarProperty Name="edpchecksum" ColumnName="edpchecksum" />
+                <ScalarProperty Name="ecabinetmacro" ColumnName="ecabinetmacro" />
+                <ScalarProperty Name="erpnr" ColumnName="erpnr" />
+                <ScalarProperty Name="externalDocument1" ColumnName="externalDocument1" />
+                <ScalarProperty Name="externalDocument2" ColumnName="externalDocument2" />
+                <ScalarProperty Name="externalDocument3" ColumnName="externalDocument3" />
+                <ScalarProperty Name="externalplacement" ColumnName="externalplacement" />
+                <ScalarProperty Name="functiongroup" ColumnName="functiongroup" />
+                <ScalarProperty Name="graphicmacro" ColumnName="graphicmacro" />
+                <ScalarProperty Name="groupnumber" ColumnName="groupnumber" />
+                <ScalarProperty Name="groupsymbolmacro" ColumnName="groupsymbolmacro" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="heightspacingabove" ColumnName="heightspacingabove" />
+                <ScalarProperty Name="heightspacingbelow" ColumnName="heightspacingbelow" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="identcode" ColumnName="identcode" />
+                <ScalarProperty Name="identtype" ColumnName="identtype" />
+                <ScalarProperty Name="installationdepth" ColumnName="installationdepth" />
+                <ScalarProperty Name="isaccessory" ColumnName="isaccessory" />
+                <ScalarProperty Name="lastchange" ColumnName="lastchange" />
+                <ScalarProperty Name="lifetime" ColumnName="lifetime" />
+                <ScalarProperty Name="macro3d" ColumnName="macro3d" />
+                <ScalarProperty Name="maintenance" ColumnName="maintenance" />
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="snapheightmiddleoffset" ColumnName="snapheightmiddleoffset" />
+                <ScalarProperty Name="mountinglocation" ColumnName="mountinglocation" />
+                <ScalarProperty Name="mountingspace" ColumnName="mountingspace" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="ordernr" ColumnName="ordernr" />
+                <ScalarProperty Name="packagingprice1" ColumnName="packagingprice1" />
+                <ScalarProperty Name="packagingprice2" ColumnName="packagingprice2" />
+                <ScalarProperty Name="packagingquantity" ColumnName="packagingquantity" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="picturefile" ColumnName="picturefile" />
+                <ScalarProperty Name="piecetype" ColumnName="piecetype" />
+                <ScalarProperty Name="priceunit" ColumnName="priceunit" />
+                <ScalarProperty Name="productgroup" ColumnName="productgroup" />
+                <ScalarProperty Name="productsubgroup" ColumnName="productsubgroup" />
+                <ScalarProperty Name="producttopgroup" ColumnName="producttopgroup" />
+                <ScalarProperty Name="purchaseprice1" ColumnName="purchaseprice1" />
+                <ScalarProperty Name="purchaseprice2" ColumnName="purchaseprice2" />
+                <ScalarProperty Name="quantityunit" ColumnName="quantityunit" />
+                <ScalarProperty Name="reportid" ColumnName="reportid" />
+                <ScalarProperty Name="salesprice1" ColumnName="salesprice1" />
+                <ScalarProperty Name="salesprice2" ColumnName="salesprice2" />
+                <ScalarProperty Name="snapheight" ColumnName="snapheight" />
+                <ScalarProperty Name="spare" ColumnName="spare" />
+                <ScalarProperty Name="stress" ColumnName="stress" />
+                <ScalarProperty Name="supplier" ColumnName="supplier" />
+                <ScalarProperty Name="terminal" ColumnName="terminal" />
+                <ScalarProperty Name="terminaloffsetx" ColumnName="terminaloffsetx" />
+                <ScalarProperty Name="terminaloffsety" ColumnName="terminaloffsety" />
+                <ScalarProperty Name="typenr" ColumnName="typenr" />
+                <ScalarProperty Name="uniqueid" ColumnName="uniqueid" />
+                <ScalarProperty Name="usage" ColumnName="usage" />
+                <ScalarProperty Name="wear" ColumnName="wear" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="widthspacingleft" ColumnName="widthspacingleft" />
+                <ScalarProperty Name="widthspacingright" ColumnName="widthspacingright" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPartConstructionPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblPartConstructionPosition">
+              <MappingFragment StoreEntitySet="tblPartConstructionPosition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="offsetx" ColumnName="offsetx" />
+                <ScalarProperty Name="offsety" ColumnName="offsety" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSafetyRelatedValuePositions">
+            <EntityTypeMapping TypeName="PartsModel.tblSafetyRelatedValuePosition">
+              <MappingFragment StoreEntitySet="tblSafetyRelatedValuePosition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="posid" ColumnName="posid" />
+                <ScalarProperty Name="hierarchy1" ColumnName="hierarchy1" />
+                <ScalarProperty Name="hierarchy2" ColumnName="hierarchy2" />
+                <ScalarProperty Name="hierarchy3" ColumnName="hierarchy3" />
+                <ScalarProperty Name="hierarchy4" ColumnName="hierarchy4" />
+                <ScalarProperty Name="hierarchy5" ColumnName="hierarchy5" />
+                <ScalarProperty Name="input" ColumnName="input" />
+                <ScalarProperty Name="output" ColumnName="output" />
+                <ScalarProperty Name="logic" ColumnName="logic" />
+                <ScalarProperty Name="pl" ColumnName="pl" />
+                <ScalarProperty Name="silcl" ColumnName="silcl" />
+                <ScalarProperty Name="pfhd" ColumnName="pfhd" />
+                <ScalarProperty Name="tmt1" ColumnName="tmt1" />
+                <ScalarProperty Name="mttfd" ColumnName="mttfd" />
+                <ScalarProperty Name="lambdad" ColumnName="lambdad" />
+                <ScalarProperty Name="mttf" ColumnName="mttf" />
+                <ScalarProperty Name="mtbf" ColumnName="mtbf" />
+                <ScalarProperty Name="rdf" ColumnName="rdf" />
+                <ScalarProperty Name="b10" ColumnName="b10" />
+                <ScalarProperty Name="b10d" ColumnName="b10d" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSupportBarPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblSupportBarPosition">
+              <MappingFragment StoreEntitySet="tblSupportBarPosition">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="partnr" ColumnName="partnr" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="xpos" ColumnName="xpos" />
+                <ScalarProperty Name="ypos" ColumnName="ypos" />
+                <ScalarProperty Name="zpos" ColumnName="zpos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTerminals">
+            <EntityTypeMapping TypeName="PartsModel.tblTerminal">
+              <MappingFragment StoreEntitySet="tblTerminal">
+                <ScalarProperty Name="additionallengthdefault" ColumnName="additionallengthdefault" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="create" ColumnName="create" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="direction" ColumnName="direction" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastchange" ColumnName="lastchange" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="terminalsizedefault" ColumnName="terminalsizedefault" />
+                <ScalarProperty Name="typedefault" ColumnName="typedefault" />
+                <ScalarProperty Name="typeofterminaldefault" ColumnName="typeofterminaldefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTerminalPositions">
+            <EntityTypeMapping TypeName="PartsModel.tblTerminalPosition">
+              <MappingFragment StoreEntitySet="tblTerminalPosition">
+                <ScalarProperty Name="additionallength" ColumnName="additionallength" />
+                <ScalarProperty Name="devicetag" ColumnName="devicetag" />
+                <ScalarProperty Name="direction" ColumnName="direction" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="maxcrosssection" ColumnName="maxcrosssection" />
+                <ScalarProperty Name="maxwirecount" ColumnName="maxwirecount" />
+                <ScalarProperty Name="mincrosssection" ColumnName="mincrosssection" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="targetinfo" ColumnName="targetinfo" />
+                <ScalarProperty Name="terminalsize" ColumnName="terminalsize" />
+                <ScalarProperty Name="twinsleeve" ColumnName="twinsleeve" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="typeofterminal" ColumnName="typeofterminal" />
+                <ScalarProperty Name="xpos" ColumnName="xpos" />
+                <ScalarProperty Name="ypos" ColumnName="ypos" />
+                <ScalarProperty Name="zpos" ColumnName="zpos" />
+                <ScalarProperty Name="xdir" ColumnName="xdir" />
+                <ScalarProperty Name="ydir" ColumnName="ydir" />
+                <ScalarProperty Name="zdir" ColumnName="zdir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVariants">
+            <EntityTypeMapping TypeName="PartsModel.tblVariant">
+              <MappingFragment StoreEntitySet="tblVariant">
+                <ScalarProperty Name="adjustrange" ColumnName="adjustrange" />
+                <ScalarProperty Name="adressrange" ColumnName="adressrange" />
+                <ScalarProperty Name="adressrange2" ColumnName="adressrange2" />
+                <ScalarProperty Name="advancecontacts" ColumnName="advancecontacts" />
+                <ScalarProperty Name="airgap" ColumnName="airgap" />
+                <ScalarProperty Name="assemblyspreaded" ColumnName="assemblyspreaded" />
+                <ScalarProperty Name="awgfrom" ColumnName="awgfrom" />
+                <ScalarProperty Name="awgtill" ColumnName="awgtill" />
+                <ScalarProperty Name="bendingradius" ColumnName="bendingradius" />
+                <ScalarProperty Name="cabledesignation" ColumnName="cabledesignation" />
+                <ScalarProperty Name="cabledisplayform" ColumnName="cabledisplayform" />
+                <ScalarProperty Name="cablelength" ColumnName="cablelength" />
+                <ScalarProperty Name="cabletype" ColumnName="cabletype" />
+                <ScalarProperty Name="cableweight" ColumnName="cableweight" />
+                <ScalarProperty Name="coding" ColumnName="coding" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="connection" ColumnName="connection" />
+                <ScalarProperty Name="connectioncrosssection" ColumnName="connectioncrosssection" />
+                <ScalarProperty Name="connectiondesignation" ColumnName="connectiondesignation" />
+                <ScalarProperty Name="connectionmethod" ColumnName="connectionmethod" />
+                <ScalarProperty Name="contactarrangement" ColumnName="contactarrangement" />
+                <ScalarProperty Name="contacttype" ColumnName="contacttype" />
+                <ScalarProperty Name="coppernumber" ColumnName="coppernumber" />
+                <ScalarProperty Name="creepagedistance" ColumnName="creepagedistance" />
+                <ScalarProperty Name="crosssectionfrom" ColumnName="crosssectionfrom" />
+                <ScalarProperty Name="crosssectiontill" ColumnName="crosssectiontill" />
+                <ScalarProperty Name="currentCSA" ColumnName="currentCSA" />
+                <ScalarProperty Name="currentIEC" ColumnName="currentIEC" />
+                <ScalarProperty Name="currentUL" ColumnName="currentUL" />
+                <ScalarProperty Name="degofprotection" ColumnName="degofprotection" />
+                <ScalarProperty Name="design" ColumnName="design" />
+                <ScalarProperty Name="doordepth" ColumnName="doordepth" />
+                <ScalarProperty Name="doorheight" ColumnName="doorheight" />
+                <ScalarProperty Name="doormountingspace" ColumnName="doormountingspace" />
+                <ScalarProperty Name="doorwidth" ColumnName="doorwidth" />
+                <ScalarProperty Name="electricalcurrent" ColumnName="electricalcurrent" />
+                <ScalarProperty Name="electricalpower" ColumnName="electricalpower" />
+                <ScalarProperty Name="firmwareversion" ColumnName="firmwareversion" />
+                <ScalarProperty Name="flow" ColumnName="flow" />
+                <ScalarProperty Name="fluidwallthickness" ColumnName="fluidwallthickness" />
+                <ScalarProperty Name="holdingpower" ColumnName="holdingpower" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="innerdiameter" ColumnName="innerdiameter" />
+                <ScalarProperty Name="intrinsicsafety" ColumnName="intrinsicsafety" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="norm" ColumnName="norm" />
+                <ScalarProperty Name="outerdiameter" ColumnName="outerdiameter" />
+                <ScalarProperty Name="paneldepth" ColumnName="paneldepth" />
+                <ScalarProperty Name="panelheight" ColumnName="panelheight" />
+                <ScalarProperty Name="panelmountingspace" ColumnName="panelmountingspace" />
+                <ScalarProperty Name="panelwidth" ColumnName="panelwidth" />
+                <ScalarProperty Name="pincount" ColumnName="pincount" />
+                <ScalarProperty Name="pipeclass" ColumnName="pipeclass" />
+                <ScalarProperty Name="plcdeviceid" ColumnName="plcdeviceid" />
+                <ScalarProperty Name="plcisbuscoupler" ColumnName="plcisbuscoupler" />
+                <ScalarProperty Name="plcisbusdistributor" ColumnName="plcisbusdistributor" />
+                <ScalarProperty Name="plciscpu" ColumnName="plciscpu" />
+                <ScalarProperty Name="plcispowersupply" ColumnName="plcispowersupply" />
+                <ScalarProperty Name="plcobjectdescription" ColumnName="plcobjectdescription" />
+                <ScalarProperty Name="plcstationtype" ColumnName="plcstationtype" />
+                <ScalarProperty Name="plctype" ColumnName="plctype" />
+                <ScalarProperty Name="powerdissipation" ColumnName="powerdissipation" />
+                <ScalarProperty Name="pressure" ColumnName="pressure" />
+                <ScalarProperty Name="pressurelevel" ColumnName="pressurelevel" />
+                <ScalarProperty Name="shortcircuitresistant" ColumnName="shortcircuitresistant" />
+                <ScalarProperty Name="standardinvers" ColumnName="standardinvers" />
+                <ScalarProperty Name="strokelength" ColumnName="strokelength" />
+                <ScalarProperty Name="symbolfile" ColumnName="symbolfile" />
+                <ScalarProperty Name="symbolnr" ColumnName="symbolnr" />
+                <ScalarProperty Name="technicalcharacteristics" ColumnName="technicalcharacteristics" />
+                <ScalarProperty Name="thread" ColumnName="thread" />
+                <ScalarProperty Name="triggercurrent" ColumnName="triggercurrent" />
+                <ScalarProperty Name="variant" ColumnName="variant" />
+                <ScalarProperty Name="voltage" ColumnName="voltage" />
+                <ScalarProperty Name="voltageCSA" ColumnName="voltageCSA" />
+                <ScalarProperty Name="voltageIEC" ColumnName="voltageIEC" />
+                <ScalarProperty Name="voltageUL" ColumnName="voltageUL" />
+                <ScalarProperty Name="voltagetype" ColumnName="voltagetype" />
+                <ScalarProperty Name="widthrating" ColumnName="widthrating" />
+                <ScalarProperty Name="wirecount" ColumnName="wirecount" />
+                <ScalarProperty Name="wirecrosssection" ColumnName="wirecrosssection" />
+                <ScalarProperty Name="wirecrosssectionanddiameter" ColumnName="wirecrosssectionanddiameter" />
+                <ScalarProperty Name="wirecrosssectionunit" ColumnName="wirecrosssectionunit" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAddresses">
+            <EntityTypeMapping TypeName="PartsModel.tblAddress">
+              <MappingFragment StoreEntitySet="tblAddress">
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastchange" ColumnName="lastchange" />
+                <ScalarProperty Name="longname" ColumnName="longname" />
+                <ScalarProperty Name="name1" ColumnName="name1" />
+                <ScalarProperty Name="name2" ColumnName="name2" />
+                <ScalarProperty Name="name3" ColumnName="name3" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="pobox" ColumnName="pobox" />
+                <ScalarProperty Name="shortname" ColumnName="shortname" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="town" ColumnName="town" />
+                <ScalarProperty Name="zippobox" ColumnName="zippobox" />
+                <ScalarProperty Name="ziptown" ColumnName="ziptown" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAttributes">
+            <EntityTypeMapping TypeName="PartsModel.tblAttribute">
+              <MappingFragment StoreEntitySet="tblAttribute">
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pos" ColumnName="pos" />
+                <ScalarProperty Name="val" ColumnName="val" />
+                <ScalarProperty Name="C_uniqueid" ColumnName="_uniqueid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

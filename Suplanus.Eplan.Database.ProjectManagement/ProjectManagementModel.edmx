@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Directories">
+          <Key>
+            <PropertyRef Name="Directory_ID" />
+          </Key>
+          <Property Name="Directory_ID" Type="int" Nullable="false" />
+          <Property Name="Directory_Name" Type="nvarchar(max)" />
+          <Property Name="Parent_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parents">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Parent_ID" />
+          </Key>
+          <Property Name="Project_ID" Type="int" Nullable="false" />
+          <Property Name="Parent_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+          </Key>
+          <Property Name="Project_ID" Type="int" Nullable="false" />
+          <Property Name="Project_Name" Type="nvarchar(max)" />
+          <Property Name="Parent_ID" Type="int" Nullable="false" />
+          <Property Name="Project_State" Type="tinyint" Nullable="false" />
+          <Property Name="Project_Path" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Properties_FLOAT">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Property_ID" />
+            <PropertyRef Name="Property_Index" />
+          </Key>
+          <Property Name="Project_ID" Type="int" Nullable="false" />
+          <Property Name="Property_ID" Type="int" Nullable="false" />
+          <Property Name="Property_Index" Type="int" Nullable="false" />
+          <Property Name="Property_FLOAT_Value" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Properties_INT">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Property_ID" />
+            <PropertyRef Name="Property_Index" />
+          </Key>
+          <Property Name="Project_ID" Type="int" Nullable="false" />
+          <Property Name="Property_ID" Type="int" Nullable="false" />
+          <Property Name="Property_Index" Type="int" Nullable="false" />
+          <Property Name="Property_INT_Value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Properties_STR">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Property_ID" />
+            <PropertyRef Name="Property_Index" />
+          </Key>
+          <Property Name="Project_ID" Type="int" Nullable="false" />
+          <Property Name="Property_ID" Type="int" Nullable="false" />
+          <Property Name="Property_Index" Type="int" Nullable="false" />
+          <Property Name="Property_STR_Value" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserProp_Ident" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserProp_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserProp_Category" Type="int" />
+          <Property Name="UserProp_Type" Type="int" />
+          <Property Name="UserProp_DisplayType" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EPLAN_2_5_PROJECT.dbo.Version' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Ver_ID" />
+            <PropertyRef Name="Ver_Min_ID" />
+          </Key>
+          <Property Name="Ver_ID" Type="int" Nullable="false" />
+          <Property Name="Ver_Min_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ProjectModelStoreContainer">
+          <EntitySet Name="Directories" EntityType="Self.Directories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parents" EntityType="Self.Parents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Properties_FLOAT" EntityType="Self.Properties_FLOAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Properties_INT" EntityType="Self.Properties_INT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Properties_STR" EntityType="Self.Properties_STR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Version" EntityType="Self.Version" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Version].[Ver_ID] AS [Ver_ID], 
+    [Version].[Ver_Min_ID] AS [Ver_Min_ID]
+    FROM [dbo].[Version] AS [Version]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Directory">
+          <Key>
+            <PropertyRef Name="Directory_ID" />
+          </Key>
+          <Property Name="Directory_ID" Type="Int32" Nullable="false" />
+          <Property Name="Directory_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parent_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parent">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Parent_ID" />
+          </Key>
+          <Property Name="Project_ID" Type="Int32" Nullable="false" />
+          <Property Name="Parent_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+          </Key>
+          <Property Name="Project_ID" Type="Int32" Nullable="false" />
+          <Property Name="Project_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parent_ID" Type="Int32" Nullable="false" />
+          <Property Name="Project_State" Type="Byte" Nullable="false" />
+          <Property Name="Project_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Properties_FLOAT">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Property_ID" />
+            <PropertyRef Name="Property_Index" />
+          </Key>
+          <Property Name="Project_ID" Type="Int32" Nullable="false" />
+          <Property Name="Property_ID" Type="Int32" Nullable="false" />
+          <Property Name="Property_Index" Type="Int32" Nullable="false" />
+          <Property Name="Property_FLOAT_Value" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Properties_INT">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Property_ID" />
+            <PropertyRef Name="Property_Index" />
+          </Key>
+          <Property Name="Project_ID" Type="Int32" Nullable="false" />
+          <Property Name="Property_ID" Type="Int32" Nullable="false" />
+          <Property Name="Property_Index" Type="Int32" Nullable="false" />
+          <Property Name="Property_INT_Value" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Properties_STR">
+          <Key>
+            <PropertyRef Name="Project_ID" />
+            <PropertyRef Name="Property_ID" />
+            <PropertyRef Name="Property_Index" />
+          </Key>
+          <Property Name="Project_ID" Type="Int32" Nullable="false" />
+          <Property Name="Property_ID" Type="Int32" Nullable="false" />
+          <Property Name="Property_Index" Type="Int32" Nullable="false" />
+          <Property Name="Property_STR_Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserProp_Ident" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserProp_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserProp_Category" Type="Int32" />
+          <Property Name="UserProp_Type" Type="Int32" />
+          <Property Name="UserProp_DisplayType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Ver_ID" />
+            <PropertyRef Name="Ver_Min_ID" />
+          </Key>
+          <Property Name="Ver_ID" Type="Int32" Nullable="false" />
+          <Property Name="Ver_Min_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Directories" EntityType="Self.Directory" />
+          <EntitySet Name="Parents" EntityType="Self.Parent" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Properties_FLOAT" EntityType="Self.Properties_FLOAT" />
+          <EntitySet Name="Properties_INT" EntityType="Self.Properties_INT" />
+          <EntitySet Name="Properties_STR" EntityType="Self.Properties_STR" />
+          <EntitySet Name="Versions" EntityType="Self.Version" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectEntities">
+          <EntitySetMapping Name="Directories">
+            <EntityTypeMapping TypeName="ProjectModel.Directory">
+              <MappingFragment StoreEntitySet="Directories">
+                <ScalarProperty Name="Directory_ID" ColumnName="Directory_ID" />
+                <ScalarProperty Name="Directory_Name" ColumnName="Directory_Name" />
+                <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parents">
+            <EntityTypeMapping TypeName="ProjectModel.Parent">
+              <MappingFragment StoreEntitySet="Parents">
+                <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+                <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ProjectModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+                <ScalarProperty Name="Project_Name" ColumnName="Project_Name" />
+                <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+                <ScalarProperty Name="Project_State" ColumnName="Project_State" />
+                <ScalarProperty Name="Project_Path" ColumnName="Project_Path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties_FLOAT">
+            <EntityTypeMapping TypeName="ProjectModel.Properties_FLOAT">
+              <MappingFragment StoreEntitySet="Properties_FLOAT">
+                <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+                <ScalarProperty Name="Property_ID" ColumnName="Property_ID" />
+                <ScalarProperty Name="Property_Index" ColumnName="Property_Index" />
+                <ScalarProperty Name="Property_FLOAT_Value" ColumnName="Property_FLOAT_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties_INT">
+            <EntityTypeMapping TypeName="ProjectModel.Properties_INT">
+              <MappingFragment StoreEntitySet="Properties_INT">
+                <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+                <ScalarProperty Name="Property_ID" ColumnName="Property_ID" />
+                <ScalarProperty Name="Property_Index" ColumnName="Property_Index" />
+                <ScalarProperty Name="Property_INT_Value" ColumnName="Property_INT_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties_STR">
+            <EntityTypeMapping TypeName="ProjectModel.Properties_STR">
+              <MappingFragment StoreEntitySet="Properties_STR">
+                <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+                <ScalarProperty Name="Property_ID" ColumnName="Property_ID" />
+                <ScalarProperty Name="Property_Index" ColumnName="Property_Index" />
+                <ScalarProperty Name="Property_STR_Value" ColumnName="Property_STR_Value" />
+                <ScalarProperty Name="UserProp_Ident" ColumnName="UserProp_Ident" />
+                <ScalarProperty Name="UserProp_Name" ColumnName="UserProp_Name" />
+                <ScalarProperty Name="UserProp_Category" ColumnName="UserProp_Category" />
+                <ScalarProperty Name="UserProp_Type" ColumnName="UserProp_Type" />
+                <ScalarProperty Name="UserProp_DisplayType" ColumnName="UserProp_DisplayType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Versions">
+            <EntityTypeMapping TypeName="ProjectModel.Version">
+              <MappingFragment StoreEntitySet="Version">
+                <ScalarProperty Name="Ver_ID" ColumnName="Ver_ID" />
+                <ScalarProperty Name="Ver_Min_ID" ColumnName="Ver_Min_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

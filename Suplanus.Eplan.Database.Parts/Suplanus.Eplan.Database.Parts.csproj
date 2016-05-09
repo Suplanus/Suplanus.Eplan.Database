@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0DEA9FD-717A-4F1B-8D4F-8119DB36D706}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Suplanus.Eplan.Database.Parts</RootNamespace>
+    <AssemblyName>Suplanus.Eplan.Database.Parts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PartsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblAccessoryList.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAccessoryListPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAccessoryPlacement.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAccessoryPlacementPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAccessoryPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAddress.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAssembly.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAttribute.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBlockingSurfacePosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblConstruction.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDoorPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDrillingPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFreeProperty.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFunctionTemplate.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMechanic.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblModule.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMountingPanelPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblOption.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPart.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartConstructionPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSafetyRelatedValuePosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSupportBarPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTerminal.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTerminalPosition.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblVariant.cs">
+      <DependentUpon>PartsModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="PartsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PartsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PartsModel.edmx.diagram">
+      <DependentUpon>PartsModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PartsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PartsModel.edmx</DependentUpon>
+      <LastGenOutput>PartsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PartsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PartsModel.edmx</DependentUpon>
+      <LastGenOutput>PartsModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
